@@ -25,16 +25,16 @@ function read_csv() {
 }
 
 function create_usrs() {
-    while IFS="," read name_user senha nome sala fonet foner outro ops
+    while IFS="," read name_user senha nome sala fonet foner outro 
     do
-        sudo adduser $name_user --force-badname
-        
-        
+        echo $name_user
+        sudo adduser $name_user --force-badname -q --gecos  "$nome,$sala,$fonet,$foner,$outro" --disabled-password
+        echo "$name_user:$senha" | sudo chpasswd
     done < "$1"
 }
 
 
-while getopts ":h :f: c" OPT; 
+while getopts ":h f: c" OPT; 
 do
     case $OPT in
         "h") usage
