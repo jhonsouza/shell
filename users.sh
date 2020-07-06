@@ -10,7 +10,8 @@ function usage() {
     echo "Options:
             -f | --file      Ler um aquivo de texto <file.type>
             -c | --create    Cria novos usuários 
-            -a | --alter     Alterar permissões de usuário
+            -a | --alter     Altera permissões do usuário
+                -n <novo nome> <nome>  Altera o nome do usuário 
             -b | --block     Bloquear acesso do usuário 
             -d | --unlock    Desbloqueia acesso do usuário"
 }
@@ -47,7 +48,7 @@ function desbloquear_user(){
     done < "$1"
         echo "$linha usuários foram desbloqueados com SUCESSO!"
 }
-while getopts ":h f: c b d" OPT; 
+while getopts ":h f: c b d " OPT; 
 do
     case $OPT in
         "h") usage
@@ -74,7 +75,12 @@ do
             echo "desbloqueando usuários da lista"
             desbloquear_user $nomes
         ;;
-        "?") echo "opção inválida, consulte -h"
+        
+        "?") echo "-$OPTARG é uma opção inválida, consulte -h"
+            exit 1
+        ;;
+        ":") echo "opção inválida: -$OPTARG requer um argumento"
+            exit 1
         ;;
     esac
 done
