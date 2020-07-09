@@ -10,7 +10,7 @@ while getopts ":l:" opt;
 do
     case $opt in
         "l") 
-            var=$2
+            var=$OPTARG
             echo "os logs foram extraidos em $2"
         ;;
         "?") echo "-$OPTAGR é uma opção inválida, consulte -h"
