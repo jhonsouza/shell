@@ -1,16 +1,17 @@
 #! /usr/bin/env bash
 
 function ssh_connect() {
-    sshpass -p "$2" ssh $1@192.168.43.98     
+    echo "Concetando ao servidor"
+    sshpass -p "$2" ssh $1@192.168.0.114   
 }
 while getopts ":u: s:" opt; 
 do
     case $opt in
         "u") 
-            name=$2
+            name=$OPTARG
         ;;
         "s") 
-            senha=$4
+            senha=$OPTARG  
         ;;
         "?") echo "-$OPTAGR é uma opção inválida, consulte -h"
         ;;
