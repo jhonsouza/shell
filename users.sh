@@ -54,8 +54,8 @@ do
         "h") usage
         ;;
         "f") 
-            echo "lendo o arquivo $2"
-            arq=$2
+            echo "lendo o arquivo $OPTARG"
+            arq=$OPTARG
             rm nomes.txt
             cat $arq > usr.txt
             read_csv usr.txt

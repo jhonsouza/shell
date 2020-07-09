@@ -10,13 +10,17 @@ function grant(){
 function revoke(){
     echo "realizando coneção ao banco $3 
     executando a query:
-        $2 FROM '$1'"
+    $2 FROM '$1'"
     mysql --login-path=local -D $3 -e "$2 FROM '$1'@'$4';"
     echo "Query executada com sucesso!"
 }
+function operacao(){
 
+    mysql --login-path=local -D $1 -e "$2"
+    
+}
 
-while getopts ":u: G: R: h: d: f:" opt; 
+while getopts ":u: G: R: h: d: e:" opt; 
 do
     case $opt in
         "u") 
@@ -35,6 +39,10 @@ do
         ;;
         "d")
             data=$OPTARG
+        ;;
+        "e")
+            ope=$OPTARG
+            operacao $data "$ope"
         ;;
         "?") echo "-$OPTAGR é uma opção inválida"
         ;;
