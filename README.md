@@ -9,3 +9,6 @@ podendo criar ou bloquear usuários a partir dessa lista.
 
 ### Tarefa 3 
 > Para a terceira tarefa, foram desenvolvidos três script com a linguagem shell, que realizam uma conexão via ssh com uma máquinha Cent OS 7 virtualizada com o software VMware. O primeiro script `ssh_pass.sh` realiza uma conexão passando a senha do usuário como parâmetro, o segundo script `ssh.sh` realiza uma conexão segura utilizando chaves e sem a necessidade de senha para realizar a conexão com a máquina e o terceiro script `controle.sh` pegas os logs de processos da máquina virtual usando o comando `ps` e o salva na máquina clinte no caminho desejado.
+
+### Autor 
+* **Jhonatan Souza de Siqueira** - [linkedin](https://github.com/jhonsouza)
